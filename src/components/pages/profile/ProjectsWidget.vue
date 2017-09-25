@@ -15,7 +15,7 @@
                         <hr> <br>
                         <div class="row">
                             <div class="col-lg-4 col-md-4">
-                                <b>Status: Completed</b>
+                                <b>Status: {{project.state.status}}</b>
                                 <!--<b v-for="state in project.state">Status: {{state.state}}</b>-->
                             </div>
                             <div class="col-lg-4 col-md-4">

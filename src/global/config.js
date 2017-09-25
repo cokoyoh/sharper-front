@@ -5,6 +5,8 @@ export const user_list_url = api_domain + 'api/v1/user-list'
 export const projects_list_url = api_domain + 'api/v1/projects-list'
 export const get_project_details_url = api_domain + 'api/v1/project/'
 
+export const create_user_url = api_domain + 'api/v1/create-user'
+
 export const add_project_url = api_domain + 'api/v1/add-project'
 
 

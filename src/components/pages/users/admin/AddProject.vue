@@ -9,13 +9,19 @@
                                 <label class="control-label">Project Title</label>
                                 <input type="text" class="form-control" id="title" name="title"
                                        v-model="project.title"
+                                       v-validate="'required'"
                                        placeholder="Title of the project...">
+                                <span v-show="errors.has('title')"
+                                      class="help is-danger">{{ errors.first('title')}}</span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Project Duration</label>
                                 <input type="number" class="form-control" id="duration" name="duration"
                                        v-model="project.duration"
+                                       v-validate="'required|min_value:1'"
                                        placeholder="Project time in months...">
+                                <span v-show="errors.has('duration')"
+                                      class="help is-danger">{{ errors.first('duration')}}</span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Project Description</label>
@@ -23,7 +29,10 @@
                                            id="description" name="description"
                                            placeholder="Brief description of the project..."
                                            v-model="project.description"
+                                           v-validate="'required'"
                                            rows="5">
+                                    <span v-show="errors.has('description')"
+                                          class="help is-danger">{{ errors.first('description')}}</span>
                                 </textarea>
                             </div>
                             <div class="form-group">

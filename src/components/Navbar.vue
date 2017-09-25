@@ -53,7 +53,7 @@
                 console.log("You are about to log out!")
                 this.$store.dispatch('clearAuthUser')
                 window.localStorage.removeItem('auth_user')
-                this.$router.push('login')
+                this.$router.push('/')
             }
         }
     }

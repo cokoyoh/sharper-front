@@ -22,7 +22,7 @@
                         <h4>Project Description</h4>
                          <p>{{projectsStore.current_project.description}}</p> <br>
                          <hr> <br>
-                         <h4>Clinet Feedback</h4>
+                         <h4>Client Feedback</h4>
                          <p v-for="feedback in projectsStore.current_project.feedbacks">{{feedback.feedback}}</p>
                          <router-link to="/all-projects"> <div class="btn btn-sm btn-success pull-right"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</div></router-link>
                      </div>
