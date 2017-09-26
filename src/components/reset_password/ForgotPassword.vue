@@ -60,15 +60,16 @@
                                 )
                                 this.$router.push('')
                             }
-                            else
+                        })
+                        .catch(response => {
+                            console.log('response failed', response)
+                            if(response.status === 403) {
                                 swal(
                                     'Failed to send email',
                                     response.body.message,
                                     'error'
                                 )
-                        })
-                        .catch(response => {
-                            console.log('response failed', response)
+                            }
                         })
                 })
             }

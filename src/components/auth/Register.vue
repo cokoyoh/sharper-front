@@ -85,6 +85,9 @@
                                 this.$router.push('login')
                             }
                         })
+                        .catch(response => {
+                            console.log(response)
+                        })
                 })
             }
         }
