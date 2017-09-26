@@ -80,14 +80,6 @@
                                     auth_user.name = response.body.name
                                     window.localStorage.setItem('auth_user',JSON.stringify(auth_user))
                                     this.$store.dispatch('setUserObject',auth_user)
-
-//                                    $roles[''] = []
-//                                    $roles = response.body.roles
-
-//                                    console.log('Roles Array', $roles)
-
-//                                   If roles is admin redurect to admin page otherwise user page
-
                                     this.$router.push('dashboard')
                                 })
                         }

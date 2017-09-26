@@ -57,16 +57,6 @@
                 this.$store.dispatch('setCurrentProject',project)
             }
         }
-//        methods: {
-//            getProject(){
-//                return this.$http.post(get_project_details_url + this.$route.params.project)
-//                    .then(response => {
-//                        this.project = response.body
-//                        console.log('Project Details',response.body)
-//                        console.log(this.$route.params.project)
-//                    })
-//            }
-//        }
     }
 </script>
 
