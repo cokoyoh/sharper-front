@@ -21,7 +21,8 @@
                                <div class="col-md-4 col-lg-4">
                                    <div class="form-group">
                                        <label class="control-label"> Project Owner </label>
-                                       <select class="form-control" id="select">
+                                       <select class="form-control" id="user_name" v-model="project.user_name" name="user_name">
+                                           <option disabled value="">Please select owner...</option>
                                            <option v-for="user in  adminStore.users_list">{{user.name}}</option>
                                        </select>
                                    </div>
@@ -70,20 +71,29 @@
                     title: '',
                     description: '',
                     duration: '',
+                    user_name: ''
                 }
             }
         },
         methods: {
-            onSubmitProject(){
+            onSubmitProject(e){
                 this.$validator.validateAll().then(() => {
                     const post_data = {
                         title: this.project.title,
                         description: this.project.description,
-                        duration: this.project.duration
+                        duration: this.project.duration,
+                        user_name: this.project.user_name
                     }
                     this.$http.post(add_project_url,post_data, {headers:get_header()})
                         .then(response => {
                             console.log(response.body)
+                            if(response.status === 200){
+                                swal(
+                                    'Success',
+                                    response.body.message,
+                                    'success'
+                                )
+                            }
                         })
                 })
             }
@@ -103,4 +113,10 @@
         .is-danger
             color: red
             font-size: 14px
+        h2
+            font-family: 'Noto Sans', sans-serif
+        p,h4,b, label
+            font-family: 'Lato', sans-serif
+            font-size: 18px
+            font-weight: 500
 </style>

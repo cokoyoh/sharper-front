@@ -2,7 +2,8 @@
     <div class="register" id="register">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+               <div class="col-lg-3 col-md-3"></div>
+                <div class="col-lg-6  col-md-6 ">
                     <form class="form-horizontal" @submit.prevent="onSubmit">
                         <fieldset>
                             <div class="form-group">
@@ -13,16 +14,16 @@
                                        v-validate="'required'"
                                        placeholder="Your name here...">
                                 <span v-show="errors.has('name')"
-                                class="help is-danger">{{ errors.first('name')}}</span>
+                                      class="help is-danger">{{ errors.first('name')}}</span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email"
                                        v-model="new_user.email"
                                        v-validate="'required|email'"
-                                        placeholder="xyz@gmail.com">
+                                       placeholder="xyz@gmail.com">
                                 <span v-show="errors.has('email')"
-                                class="help is-danger">{{ errors.first('email')}}</span>
+                                      class="help is-danger">{{ errors.first('email')}}</span>
                             </div>
 
                             <div class="form-group">
@@ -31,7 +32,7 @@
                                        v-validate="'required|min:6'"
                                        v-model="new_user.password">
                                 <span v-show="errors.has('password')"
-                                class="help is-danger">{{ errors.first('password')}}</span>
+                                      class="help is-danger">{{ errors.first('password')}}</span>
                             </div>
 
                             <div class="form-group">
@@ -41,7 +42,7 @@
                                        v-validate="'required|confirmed:password'"
                                        v-model="new_user.confirmation">
                                 <span v-show="errors.has('confirmation')"
-                                class="help is-danger">{{ errors.first('confirmation')}}</span>
+                                      class="help is-danger">{{ errors.first('confirmation')}}</span>
                             </div>
 
                             <div class="form-group">
@@ -57,7 +58,6 @@
 
 <script>
     import {create_user_url} from "../../global/config";
-
     export default {
         data() {
             return {
@@ -77,6 +77,11 @@
                         .then(response => {
                             console.log(response)
                             if(response.status === 200){
+                                swal(
+                                    'Success',
+                                     response.body.message,
+                                    'success'
+                                )
                                 this.$router.push('login')
                             }
                         })
@@ -92,4 +97,10 @@
     .is-danger
         color: red
         font-size: 14px
+    .register h2
+        font-family: 'Noto Sans', sans-serif
+    .register p,h4,b, label
+        font-family: 'Lato', sans-serif
+        font-size: 18px
+        font-weight: 500
 </style>

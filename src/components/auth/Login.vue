@@ -2,6 +2,7 @@
     <div class="login" id="login">
         <div class="container">
           <div class="row">
+              <div class="col-lg-3 col-md-3"></div>
               <div class="col-lg-6 col-md-6 ">
                   <form class="form-horizontal" @submit.prevent="onLogin">
                       <fieldset>
@@ -22,8 +23,8 @@
                           </div>
 
                           <div class="form-group">
-                              <button class="btn btn-success" type="submit">Login</button>
-                              <button class="btn btn-default"><router-link to="forgot-password">Forgot Password</router-link></button>
+                              <button class="btn-login btn btn-success" type="submit">Login</button>
+                              <button class="btn btn-default pull-right"><router-link to="forgot-password">Forgot Password</router-link></button>
                           </div>
 
                       </fieldset>
@@ -92,5 +93,6 @@
 <style lang="sass">
     .login
         padding: 80px 0 60px
-        margin-left: 150px
+    .login .btn-default
+        background: transparent !important
 </style>

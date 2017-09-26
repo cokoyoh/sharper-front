@@ -1,25 +1,31 @@
 <template>
     <div class="forgot-password" id="forgot-password">
         <div class="container">
-           <div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
-               <form class="form-horizontal" @submit.prevent="onSubmit">
-                   <fieldset>
-                       <div class="form-group">
-                           <h1>Forgot your password?</h1>
-                       </div>
-                       <div class="form-group">
-                           <label class="control-label" for="focusedInput">Password Reset</label>
-                           <input class="for-password form-control" id="focusedInput" name="email" type="text" placeholder="Enter your registered email here..." v-model="email">
-                       </div>
-                       <div class="form-group">
-                           <button class="btn btn-primary btn-lg btn-block">
-                               Send me reset password instructions
-                           </button>
-                       </div>
-                   </fieldset>
-               </form>
+          <div class="row">
+              <div class="col-lg-3 col-md-3"></div>
+              <div class="col-lg-6 col-md-6">
+                  <form class="form-horizontal" @submit.prevent="onSubmit">
+                      <fieldset>
+                          <div class="form-group">
+                              <h1>Forgot your password?</h1>
+                          </div>
+                          <div class="form-group">
+                              <label class="control-label" for="focusedInput">Password Reset</label>
+                              <input class="for-password form-control"
+                                     id="focusedInput" name="email" type="text"
+                                     placeholder="xyz@gmail.com"
+                                     v-model="email">
+                          </div>
+                          <div class="form-group">
+                              <button class="btn btn-success btn-md btn-block">
+                                  Send me reset password instructions
+                              </button>
+                          </div>
+                      </fieldset>
+                  </form>
 
-           </div>
+              </div>
+          </div>
         </div>
     </div>
 </template>
@@ -59,15 +65,16 @@
     .forgot-password
         padding: 60px 0 60px
 
-    .btn.btn-primary
-        border-radius: 0
-        height: 40px
+    /*.btn.btn-primary*/
+        /*border-radius: 0*/
+        /*height: 40px*/
 
-    .for-password.form-control
-        border-radius: 0
-        height: 45px
+    /*.for-password.form-control*/
+        /*border-radius: 0*/
+        /*height: 45px*/
 
     label
-        font-size: 14px
+        font-size: 18px
+        font-weight: 500
 
 </style>
