@@ -14,7 +14,10 @@
                               <input class="for-password form-control"
                                      id="focusedInput" name="email" type="text"
                                      placeholder="xyz@gmail.com"
+                                     v-validate="'required|email'"
                                      v-model="email">
+                              <span v-show="errors.has('email')"
+                                    class="help is-danger">{{ errors.first('email')}}</span>
                           </div>
                           <div class="form-group">
                               <button class="btn btn-success btn-md btn-block">
@@ -41,21 +44,33 @@
         },
         methods: {
             onSubmit(){
-                console.log("Yes, send it to me please")
-                var post_data = {
-                    email: this.email,
-                    url: 'http://localhost:8080'
-                }
-                this.$http.post(forgot_password_url,post_data)
-                    .then(response => {
-                        console.log('response', response)
-                        window.alert(response.body.data)
-                        this.$router.push('')
-                    })
-                    .catch(response => {
-                        console.log('response failed', response)
-                        window.alert(response.body.data)
-                    })
+                this.$validator.validateAll().then(() => {
+                    var post_data = {
+                        email: this.email,
+                        url: 'http://localhost:8080'
+                    }
+                    this.$http.post(forgot_password_url,post_data)
+                        .then(response => {
+                            console.log('response', response)
+                            if(response.status === 200){
+                                swal(
+                                    'Success',
+                                    response.body.message,
+                                    'success'
+                                )
+                                this.$router.push('')
+                            }
+                            else
+                                swal(
+                                    'Failed to send email',
+                                    response.body.message,
+                                    'error'
+                                )
+                        })
+                        .catch(response => {
+                            console.log('response failed', response)
+                        })
+                })
             }
         }
     }
@@ -64,15 +79,9 @@
 <style lang="sass">
     .forgot-password
         padding: 60px 0 60px
-
-    /*.btn.btn-primary*/
-        /*border-radius: 0*/
-        /*height: 40px*/
-
-    /*.for-password.form-control*/
-        /*border-radius: 0*/
-        /*height: 45px*/
-
+    .forgot-password .is-danger
+        color: red
+        font-size: 14px
     label
         font-size: 18px
         font-weight: 500
