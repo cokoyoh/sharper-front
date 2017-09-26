@@ -1,5 +1,6 @@
 <template>
     <div class="project-details" id="project-details">
+        <top></top>
         <div class="container">
             <h2>Project Details</h2>
              <section class="project-details">
@@ -35,7 +36,11 @@
 <script>
     import {mapState} from 'vuex'
     import projectStore from "./projectStore";
-    export  default {
+    import CredentialsTop from '../../auth/Credentials.vue'
+    export default {
+        components: {
+            'top': CredentialsTop
+        },
         computed: mapState({
             projectsStore: state => state.projectsStore
         })
@@ -44,7 +49,7 @@
 
 <style lang="sass">
     .project-details
-        padding: 30px 0 60px
+        padding: 0 0 60px
     .project-details img
         height: 175px
         width: 175px

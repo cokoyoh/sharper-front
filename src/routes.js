@@ -46,6 +46,14 @@ const router = new VueRouter({
             }
         },
         {
+            path: '/contact-us',
+            component: require('./components/pages/Contact.vue'),
+            name:'contact-us',
+            meta: {
+                requiresAuth: false ,
+            }
+        },
+        {
             path: '/add-project',
             component: require('./components/pages/users/admin/AddProject.vue'),
             name:'add-project',

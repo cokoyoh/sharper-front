@@ -1,5 +1,6 @@
 <template>
     <div class="register" id="register">
+        <top></top>
         <div class="container">
             <div class="row">
                <div class="col-lg-3 col-md-3"></div>
@@ -58,7 +59,11 @@
 
 <script>
     import {create_user_url} from "../../global/config";
+    import CredentialsTop from './Credentials.vue'
     export default {
+        components: {
+            'top': CredentialsTop
+        },
         data() {
             return {
                 new_user: {
@@ -96,7 +101,7 @@
 
 <style lang="sass">
     .register
-        padding: 40px 0 60px
+        padding: 0 0 60px
     .is-danger
         color: red
         font-size: 14px

@@ -1,5 +1,6 @@
 <template>
     <div class="login" id="login">
+        <top></top>
         <div class="container">
           <div class="row">
               <div class="col-lg-3 col-md-3"></div>
@@ -41,8 +42,12 @@
     import {login_url, get_header, user_url} from "../../global/config";
     import {client_id, client_secret} from "../../global/env";
     import {mapState} from 'vuex'
+    import CredentialsTop from './Credentials.vue'
 
     export default {
+        components: {
+            'top': CredentialsTop
+        },
         data () {
             return {
                 login: {
@@ -96,7 +101,7 @@
 
 <style lang="sass">
     .login
-        padding: 80px 0 60px
+        padding: 0 0 60px
     .login .is-danger
         color: red
         font-size: 14px

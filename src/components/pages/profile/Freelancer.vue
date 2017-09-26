@@ -1,8 +1,7 @@
 <template>
     <div class="freelancer" id="freelancer">
+        <projects-top></projects-top>
         <div class="container">
-            <h4 class="position-center">Sharper Innovations Projects</h4>
-
             <project-block></project-block>
         </div>
     </div>
@@ -11,9 +10,11 @@
 <script>
     import {mapState} from 'vuex'
     import ProjectBlock from './ProjectsWidget.vue'
+    import ProjectsTop from './ProjectsTop.vue'
     export default {
         components: {
-            'project-block': ProjectBlock
+            'project-block': ProjectBlock,
+            'projects-top': ProjectsTop
         },
         computed: mapState({
             productsStore:state => state.productsStore
@@ -26,7 +27,7 @@
 
 <style lang="sass">
     .freelancer
-        padding: 80px 0 60px
+        padding: 0 0 60px
     .freelancer h2
         font-family: 'Noto Sans', sans-serif
     .freelancer p, h4, b
