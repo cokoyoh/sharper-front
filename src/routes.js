@@ -58,7 +58,8 @@ const router = new VueRouter({
             component: require('./components/pages/users/admin/AddProject.vue'),
             name:'add-project',
             meta: {
-                requiresAuth: false ,
+                requiresAuth: true ,
+                requiresAdmin: true,
             }
         },
         {
@@ -84,6 +85,12 @@ router.beforeEach((to, from, next) => {
         if(auth_user && auth_user.access_token){
             next()
         } else next('login')
+    }
+    if(to.meta.requiresAdmin){
+        const auth_user = JSON.parse(window.localStorage.getItem('auth_user'))
+        if(auth_user.role === 'admin'){
+            next()
+        } else next('/')
     }
     next()
 })

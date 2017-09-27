@@ -1,9 +1,9 @@
 <template>
     <div class="user-details" id="user-details">
-        <div class="container-fluid">
-            <h2>User Details</h2> <br>
-            <h4>User name: {{userStore.auth_user.name}} </h4>
-            <h4>Email: {{userStore.auth_user.email}} </h4>
+        <div class="container">
+            <img src="../../../images/default_avatar.png" alt="">
+            <p><i class="fa fa-user-o" aria-hidden="true"></i> {{userStore.auth_user.name}} </p>
+            <p><i class="fa fa-envelope-o" aria-hidden="true"></i> {{userStore.auth_user.email}} </p>
         </div>
     </div>
 </template>
@@ -21,5 +21,9 @@
 <style lang="sass">
     .user-details p, h4, b
         font-family: 'Lato', sans-serif
-
+    .user-details img
+        height: 150px
+        width: 150px
+        margin-left: 30px
+        border-radius: 50%
 </style>

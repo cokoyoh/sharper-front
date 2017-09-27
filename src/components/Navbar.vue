@@ -15,7 +15,17 @@
                     <a class="nav-link" href="#team" v-if="this.$route.path === '/'">Team</a>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="/contact-us">Contact Us</router-link>
+                    <router-link class="nav-link"
+                                 v-if="userStore.auth_user !== null && userStore.auth_user.role === 'admin'"
+                                 to="/dashboard">
+                        Dashboard</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link"
+                                 v-if="userStore.auth_user.role !== 'admin'"
+                                 to="/contact-us">
+                        Contact Us
+                    </router-link>
                 </li>
                 <form class="form-inline my-2 my-lg-0">
                     <router-link to="/register"> <button class="btn btn-sm btn-outline-success my-2 my-sm-0 live-space" v-if="userStore.auth_user === null">Sign Up</button></router-link>
