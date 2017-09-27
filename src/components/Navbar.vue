@@ -20,7 +20,7 @@
                 <form class="form-inline my-2 my-lg-0">
                     <router-link to="/register"> <button class="btn btn-sm btn-outline-success my-2 my-sm-0 live-space" v-if="userStore.auth_user === null">Sign Up</button></router-link>
                     <router-link to="/login"> <button class="btn btn-sm btn-outline-success my-2 my-sm-0" v-if="userStore.auth_user === null">Login</button></router-link>
-                    <button class="btn btn-outline-success my-2 my-sm-0" @click="onLogout" type="submit" v-if="userStore.auth_user !== null">Logout</button>
+                    <button class="btn btn-sm btn-outline-success my-2 my-sm-0" @click="onLogout" type="submit" v-if="userStore.auth_user !== null">Logout</button>
                 </form>
                 <hr>
             </ul>

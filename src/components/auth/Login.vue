@@ -85,16 +85,26 @@
                                 this.$http.get(user_url, {headers: get_header()})
                                     .then(response => {
                                         console.log('user object', response)
-                                        auth_user.email = response.body.email
-                                        auth_user.name = response.body.name
+                                        auth_user.email = response.body.data.email
+                                        auth_user.name = response.body.data.name
                                         window.localStorage.setItem('auth_user',JSON.stringify(auth_user))
                                         this.$store.dispatch('setUserObject',auth_user)
-                                        this.$router.push('dashboard')
+                                        var roles = response.body.data
+                                        console.log(roles[0].roles[0].name)
+                                        if(roles[0].roles[0].name === 'admin'){
+                                            this.$router.push('dashboard')
+                                        }
+                                        if(roles[0].roles[0].name === 'client'){
+                                            this.$router.push('/')
+                                        }
                                     })
                             }
                         })
                 })
-            }
+            },
+//            dashboardRedirect(email){
+//                this.login.email = email
+//            }
         }
     }
 </script>
