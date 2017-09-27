@@ -25,20 +25,27 @@
         height: 500px
         width: 100%
         text-align: center
-        background-image: url("../../../images/background/min_img_bak.jpg")
+        background-image: url("../../../images/background/pexels-photo.jpg")
         background-position: center
         background-repeat: no-repeat
         background-size: cover
         .btn-clear
             background-color: transparent !important
+            color: #fff
             border: 2px solid #0099cc
     .header h2
         font-family: 'Noto Sans', sans-serif
         font-size: 50px
+        color: #fff
 
     .header p
         font-family: 'Lato', sans-serif
         font-size: 30px
         text-align: center
+        color: #fff
+    .header b
+        font-family: 'Lato', sans-serif
+        text-align: center
+        color: #fff
 
 </style>

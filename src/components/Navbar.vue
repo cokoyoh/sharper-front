@@ -22,7 +22,6 @@
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link"
-                                 v-if="userStore.auth_user.role !== 'admin'"
                                  to="/contact-us">
                         Contact Us
                     </router-link>

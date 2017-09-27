@@ -39,6 +39,10 @@
         padding: 60px 0 60px
         h2
             text-align: center
+            color: #222222
+        h4
+            color: #222222
+            text-align: left
 
     .services    img
             height: 200px

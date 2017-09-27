@@ -39,7 +39,7 @@ const router = new VueRouter({
         },
         {
             path: '/all-projects',
-            component: require('./components/pages/profile/Freelancer.vue'),
+            component: require('./components/pages/profile/AllProjects.vue'),
             name:'all-projects',
             meta: {
                 requiresAuth: false ,

@@ -30,8 +30,10 @@
         padding: 0 0 60px
     .freelancer h2
         font-family: 'Noto Sans', sans-serif
+        color: #222222
     .freelancer p, h4, b
         font-family: 'Lato', sans-serif
+        color: #222222
     .position-center
         text-align: center
 </style>
