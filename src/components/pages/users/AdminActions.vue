@@ -13,7 +13,6 @@
                    <ul class="list-group">
                        <li class="list-group-item"><router-link to="add-project" class="black-color">Add New Project<span class="badge pull-right"><i class="fa fa-plus" aria-hidden="true"></i></span> </router-link></li>
                        <li class="list-group-item"><router-link to="add-project"  class="black-color">Vew All Projects<span class="badge pull-right"><i class="fa fa-product-hunt" aria-hidden="true"></i></span></router-link></li>
-                       <li class="list-group-item"><router-link to="add-project"  class="black-color">Add New Admin<span class="badge pull-right"><i class="fa fa-user-plus" aria-hidden="true"></i></span></router-link></li>
                        <li class="list-group-item"><router-link to="add-project"  class="black-color">Change Project Status<span class="badge pull-right"><i class="fa fa-wrench" aria-hidden="true"></i></span></router-link></li>
                    </ul>
                </div>

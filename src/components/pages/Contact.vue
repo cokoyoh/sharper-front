@@ -4,7 +4,7 @@
         <div class="container">
             <div class="col-lg-12 col-md-12">
                 <h4>Contact us here</h4>
-                <form class="form-horizontal">
+                <form class="form-horizontal" @submit.prevent="onSubmit">
                     <fieldset>
                         <div class="row">
                             <div class="col-lg-6 col-md-6">
@@ -13,26 +13,38 @@
                                                                                           aria-hidden="true"></i></span>
                                     <input type="text" class="form-control" aria-describedby="sizing-addon1"
                                            placeholder="Full Name"
-                                           name="full_name" required>
+                                           required
+                                           v-model="message.full_name"
+                                           v-validate="'required'"
+                                           name="full_name" >
                                 </div>
 
                                 <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="1.2s">
                                     <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-envelope-open"
                                                                               aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon2"
-                                           placeholder="Email Address" name="email_address" required>
+                                    <input type="email" class="form-control"
+                                           aria-describedby="sizing-addon2"
+                                           v-model="message.email"
+                                           required
+                                           v-validate="'required|email'"
+                                           placeholder="Email Address" name="email_address" >
                                 </div>
 
                                 <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="1.6s">
                                     <span class="input-group-addon" id="sizing-addon3"><i class="fa fa-phone"
                                                                               aria-hidden="true"></i></span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon3"
-                                           placeholder="Phone Number" name="phone_number" required>
+                                    <input type="number" class="form-control"
+                                           v-model="message.phone_number"
+                                           aria-describedby="sizing-addon3"
+                                           placeholder="Phone Number" name="phone_number">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="input-group wow fadeInUp" data-wow-delay="2.0s">
-                                <textarea class="form-control" cols="80" rows="6" name="message" required
+                                <textarea class="form-control" cols="80" rows="6" name="message"
+                                          v-model="message.text"
+                                          required
+                                          v-validate="'required'"
                                   placeholder="Write message here..."></textarea>
                                 </div>
                                 <button class="btn btn-success btn-lg btn-block wow fadeInUp"  data-wow-delay="2.4s" name="send">Send Message</button>
@@ -48,8 +60,23 @@
 <script>
     import ContactTop from './ContactTop.vue'
     export default {
+        data(){
+            return {
+                message: {
+                    full_name: '',
+                    email: '',
+                    phone_number: '',
+                    text: ''
+                }
+            }
+        },
         components: {
             'contact-top': ContactTop,
+        },
+        methods: {
+            onSubmit(){
+                console.log(this.message)
+            }
         }
     }
 </script>
