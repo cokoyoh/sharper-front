@@ -96,16 +96,21 @@
                                             this.$router.push('dashboard')
                                         }
                                         if(auth_user.role === 'client'){
-                                            this.$router.push('/')
+                                            this.$router.push('/client-dashboard')
                                         }
                                     })
                             }
                         })
+                        .catch(response => {
+                            console.log(response.body.message)
+                            swal(
+                                'Invalid Details',
+                                 response.body.message,
+                                'error'
+                            )
+                        })
                 })
             },
-//            dashboardRedirect(email){
-//                this.login.email = email
-//            }
         }
     }
 </script>

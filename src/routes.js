@@ -35,6 +35,15 @@ const router = new VueRouter({
             name:'dashboard',
             meta: {
                 requiresAuth: true ,
+                requiresAdmin: true,
+            }
+        },
+        {
+            path: '/client-dashboard',
+            component: require('./components/pages/users/ClientDashboard.vue'),
+            name:'client-dashboard',
+            meta: {
+                requiresAuth: true ,
             }
         },
         {

@@ -1,5 +1,5 @@
 const state = {
-    auth_user: null
+    auth_user: null,
 }
 
 const mutations = {

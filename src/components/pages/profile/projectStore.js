@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import {projects_list_url} from "../../../global/config";
+import {get_header, get_user_projects_url, projects_list_url} from "../../../global/config";
 
 const state = {
     projects_list: {},
     current_project: null,
+    user_projects: {},
 }
 
 const mutations = {
@@ -12,8 +13,10 @@ const mutations = {
     },
     SET_CURRENT_PROJECT(state,project){
         state.current_project = project
+    },
+    SET_USER_PROJECTS(state, user_projects){
+        state.user_projects = user_projects
     }
-
 }
 
 const actions = {
@@ -29,8 +32,14 @@ const actions = {
     },
     setCurrentProject: ({commit}, project) => {
         commit('SET_CURRENT_PROJECT', project)
+    },
+    setUserProjects: ({commit}, user_projects) => {
+        return Vue.http.get(get_user_projects_url,{headers:get_header()})
+            .then(response => {
+                console.log(response)
+                commit('SET_USER_PROJECTS', response.body.data)
+            })
     }
-
 }
 
 export default {

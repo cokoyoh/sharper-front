@@ -84,14 +84,19 @@
                             if(response.status === 200){
                                 swal(
                                     'Success',
-                                     response.body.message,
+                                     response.body.message + ' Please log in',
                                     'success'
                                 )
                                 this.$router.push('login')
                             }
                         })
                         .catch(response => {
-                            console.log(response)
+                            console.log(response.body.errors.email)
+                            swal(
+                                response.body.message,
+                                response.body.errors.email[0] + '. Please use another',
+                                'error'
+                               )
                         })
                 })
             }

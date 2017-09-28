@@ -22,6 +22,12 @@
                 </li>
                 <li class="nav-item">
                     <router-link class="nav-link"
+                                 v-if="userStore.auth_user !== null && userStore.auth_user.role === 'client'"
+                                 to="/client-dashboard">
+                        Dashboard</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link"
                                  to="/contact-us">
                         Contact Us
                     </router-link>

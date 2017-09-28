@@ -27,12 +27,6 @@
             'user-details': UserDetails,
             'user-actions': UserActions
         },
-//        computed: mapState({
-//            adminStore: state => state.adminStore
-//        }),
-//        created(){
-//            this.$store.dispatch('setSharperDetails')
-//        }
     }
 </script>
 
