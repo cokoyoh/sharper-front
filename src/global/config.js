@@ -12,6 +12,8 @@ export const add_project_url = api_domain + 'api/v1/add-project'
 export const get_user_projects_url = api_domain + 'api/v1/get-user-projects'
 export const add_user_feedback_url = api_domain + 'api/v1/add-feedback'
 
+export const contact_us_url = api_domain + 'api/v1/contact-us'
+
 
 export const forgot_password_url = api_domain + 'api/forgot-password'
 export const reset_password_url = api_domain + 'api/reset-password'

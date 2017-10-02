@@ -59,6 +59,7 @@
 
 <script>
     import ContactTop from './ContactTop.vue'
+    import {contact_us_url} from "../../global/config";
     export default {
         data(){
             return {
@@ -76,6 +77,15 @@
         methods: {
             onSubmit(){
                 console.log(this.message)
+                const post_data = this.message
+                this.$http.post(contact_us_url, post_data)
+                    .then(response => {
+                        console.log(response)
+                        if(response.status === 200){
+                            swal('Success',response.body.message,'success')
+                            this.$router.push('/')
+                        }
+                    })
             }
         }
     }
