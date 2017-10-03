@@ -39,6 +39,15 @@ const router = new VueRouter({
             }
         },
         {
+            path: '/edit-status',
+            component: require('./components/pages/users/admin/EditStatus.vue'),
+            name:'edit-status',
+            meta: {
+                requiresAuth: true ,
+                requiresAdmin: true,
+            }
+        },
+        {
             path: '/client-dashboard',
             component: require('./components/pages/users/ClientDashboard.vue'),
             name:'client-dashboard',
